@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
 
     SDL_Event e;
     int x = 0, y = 0;
+    int xv = 1, yv = 1;
 
     while (true) {
         
@@ -28,8 +29,18 @@ int main(int argc, char *argv[]) {
         Uint32 *pixel_ptr = (Uint32*)((Uint8*)pixels + y * pitch + x * 4);
         *pixel_ptr = SDL_MapRGBA(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), 255, 0, 0, 255);
 
-        if (x < WIDTH) x++;
-        if (y < HEIGHT) y++;
+        if (x < WIDTH) { 
+            x += xv;
+        } else {
+            xv *= -1;
+            x += xv;
+        }
+        if (y < HEIGHT) {
+            y += yv;
+        } else {
+            yv *= -1;
+            y += yv;
+        }
 
         SDL_UnlockTexture(texture);
         SDL_RenderClear(renderer);
