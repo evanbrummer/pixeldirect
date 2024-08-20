@@ -17,6 +17,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    
+
     SDL_Event windowEvent;
 
     while (true) {
