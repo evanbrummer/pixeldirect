@@ -5,7 +5,7 @@
 #define WIDTH 1280
 #define HEIGHT 720
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     std::cout << "test" << std::endl;
 
     SDL_Init(SDL_INIT_EVERYTHING);
