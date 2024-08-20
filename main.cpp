@@ -29,18 +29,16 @@ int main(int argc, char *argv[]) {
         Uint32 *pixel_ptr = (Uint32*)((Uint8*)pixels + y * pitch + x * 4);
         *pixel_ptr = SDL_MapRGBA(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), 255, 0, 0, 255);
 
-        if (x < WIDTH) { 
-            x += xv;
-        } else {
+        //std::cout << "(" << x << ", " << y << ")\n";
+        if (x + xv >= WIDTH || x + xv < 0) {
             xv *= -1;
-            x += xv;
         }
-        if (y < HEIGHT) {
-            y += yv;
-        } else {
+        x += xv;
+
+        if (y + yv >= HEIGHT || y + yv < 0) {
             yv *= -1;
-            y += yv;
         }
+        y += yv;
 
         SDL_UnlockTexture(texture);
         SDL_RenderClear(renderer);
