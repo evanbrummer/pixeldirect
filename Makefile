@@ -1,2 +1,5 @@
+TARGET = pd
+
 all:
-	g++ main.cpp -o pd -I src/include -L src/lib -lmingw32 -lSDL2main -lSDL2
+	g++ main.cpp -o $(TARGET) -I src/include -L src/lib -lSDL2main -lSDL2
+	./$(TARGET)
