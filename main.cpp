@@ -1,10 +1,10 @@
 #include <iostream>
 #include "SDL.h"
 
-#define WIDTH 1280
-#define HEIGHT 720
-
 int main(int argc, char *argv[]) {
+
+    const int WIDTH = 1280, HEIGHT = 720;
+
     SDL_Init(SDL_INIT_EVERYTHING);
 
     SDL_Window *window = SDL_CreateWindow("Pixel Direct", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI);
@@ -58,4 +58,5 @@ int main(int argc, char *argv[]) {
     SDL_Quit();
 
     return EXIT_SUCCESS;
+
 }
