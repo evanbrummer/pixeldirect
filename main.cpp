@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
 
-    const int WIDTH = 1280, HEIGHT = 720;
+    const int WIDTH = 801, HEIGHT = 800;
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -30,29 +30,18 @@ int main(int argc, char *argv[]) {
         Uint32 *pixel_ptr = (Uint32*)((Uint8*)pixels + y * pitch + x * 4);
         *pixel_ptr = SDL_MapRGBA(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), red, green, blue, 255);
 
-        if (red == 255 && green < 255 && blue == 0)
-        { // green up
-            green += 1;
-        }
-        else if (red > 0 && green == 255 && blue == 0)
-        { // red down
-            red -= 1;
-        }
-        else if (red == 0 && green == 255 && blue < 255)
-        { // blue up
-            blue += 1;
-        }
-        else if (red == 0 && green > 0 && blue == 255)
-        {
-            green -= 1;
-        }
-        else if (red < 255 && green == 0 && blue == 255)
-        {
-            red += 1;
-        }
-        else if (red == 255 && green == 0 && blue > 0)
-        {
-            blue -= 1;
+        if (red == 255 && green < 255 && blue == 0) {  // green up
+          green += 1;
+        } else if (red > 0 && green == 255 && blue == 0) {  // red down
+          red -= 1;
+        } else if (red == 0 && green == 255 && blue < 255) {  // blue up
+          blue += 1;
+        } else if (red == 0 && green > 0 && blue == 255) {
+          green -= 1;
+        } else if (red < 255 && green == 0 && blue == 255) {
+          red += 1;
+        } else if (red == 255 && green == 0 && blue > 0) {
+          blue -= 1;
         }
 
         //std::cout << "(" << x << ", " << y << ")\n";
